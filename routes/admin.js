@@ -13,7 +13,12 @@
     })
 
     router.get('/categorias', function(req, res){
-        res.render("admin/categorias")
+        Categoria.find().sort({Date:'desc'}).lean().then(function(categorias){
+            res.render('admin/categorias', {categorias: categorias})
+        }).catch(function(err){
+            req.flash('error_msg', 'Houve um erro ao listar as categorias')
+            res.redirect('/admin')
+        })
     })
 
     router.get('/categorias/add', function(req, res){
