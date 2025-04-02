@@ -6,6 +6,7 @@ require('../models/Usuario')
 const Usuario = mongoose.model('usuarios')
 const bcrypt =require('bcryptjs')
 const passport = require('passport')
+const eAdmin = require('../helpers/eAdmin')
 router.get('/registro', (req, res) => {
     res.render('usuarios/registro')
 })
@@ -47,7 +48,8 @@ router.post('/registro', (req, res) => {
                 const novoUsuario = new Usuario({
                     nome:req.body.nome,
                     email: req.body.email,
-                    senha: req.body.senha
+                    senha: req.body.senha,
+
                 })
 
                 bcrypt.genSalt(10, (erro, salt) => {
@@ -90,5 +92,7 @@ router.post('/login', (req, res, next) => {
         failureFlash: true
     })(req, res, next)
 })
+
+
 
 module.exports = router
