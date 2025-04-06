@@ -1,26 +1,42 @@
-<div class="bg-light p-5 rounded-lg m-3">
-  <h1 class="display-4">Bem vindo ao Social Games</h1>
-  <p class="lead">Seja bem vindo ao Social Games, a sua area web para compartilhar fases difícil de games, interagir com outros usuarios e ganhar mais xp de conhecimento em jogos.</p>
-  <hr class="my-4">
-  <p>Seja um jogador de elite, compartilhe experiências de jogos com outros jogadores.</p>
-  <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
-</div>
-
-<hr>
-
-<h2>Postagens recentes:</h2>
-
-{{#each postagens}}
-<div class="card mt-4">
-    <div class="card-body">
-        <h3>{{titulo}}</h3>
-        <p>{{descricao}}</p>
-        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia Mais</button></a>
-        <hr>
-        <small>Categoria: {{categoria.nome}}</small><br>
-        <small>Data de Publicação: {{data}}</small>
+<div class="container mt-5">
+  <div class="bg-light p-5 rounded shadow-sm">
+    <h1 class="display-4 text-center mb-3">Bem vindo ao Social Games</h1>
+    <p class="lead text-center">Seja bem-vindo ao Social Games, sua área web para compartilhar fases difíceis de games, interagir com outros usuários e ganhar mais XP de conhecimento em jogos.</p>
+    <hr class="my-4">
+    <p class="text-center">Seja um jogador de elite: compartilhe experiências de jogos com outros jogadores.</p>
+    <div class="text-center mt-4">
+      <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
     </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h2 class="text-center mb-4">Postagens recentes:</h2>
+
+  {{#each postagens}}
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">{{titulo}}</h3>
+      <p class="card-text">{{descricao}}</p>
+      <a href="/postagem/{{slug}}" class="btn btn-success">Leia Mais</a>
+      <hr>
+      <small class="text-muted">Categoria: {{categoria.nome}}</small><br>
+      <small class="text-muted">Data de Publicação: {{data}}</small>
+    </div>
+  </div>
+  {{else}}
+  <div class="alert alert-info text-center">Nenhuma postagem</div>
+  {{/each}}
 </div>
-{{else}}
-    <h5>Nenhuma postagem</h5>
-{{/each}}
+
+<!-- Footer -->
+<footer class="bg-dark text-light mt-5 pt-4 pb-3">
+  <div class="container text-center">
+    <p class="mb-1">🎮 Social Games - Compartilhe experiências e suba de nível!</p>
+    <p class="mb-0">&copy; {{year}} Desenvolvido por Natalia • Todos os direitos reservados.</p>
+    <div class="mt-2">
+      <a href="https://github.com/NataliaBento/" class="text-light me-3"><i class="bi bi-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/feed/" class="text-light"><i class="bi bi-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+</footer>
