@@ -1,4 +1,5 @@
 //Carregando módulos
+require('dotenv').config()
 const express = require('express')
 const handlebars = require('express-handlebars')
 const app = express()
@@ -15,7 +16,6 @@ const usuarios = require('./routes/usuario')
 const passport = require('passport')
 require ('./config/auth')(passport)
 const db = require('./config/db')
-require('.env').config()
 
 // Configurações 
 
